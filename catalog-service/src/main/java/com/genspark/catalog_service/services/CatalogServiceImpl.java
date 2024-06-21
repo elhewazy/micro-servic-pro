@@ -1,20 +1,35 @@
-package com.genspark.inventory.services;
+package com.genspark.catalog_service.services;
 
-import com.genspark.inventory.model.Catalog;
-import com.genspark.inventory.repository.CatalogRepository;
+import com.genspark.catalog_service.model.Book;
+import com.genspark.catalog_service.model.Catalog;
+import com.genspark.catalog_service.repository.CatalogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CatalogServiceImpl implements CatalogService{
 
-    @Autowired
-    CatalogRepository repository;
+    private CatalogRepository repository;
+//    private BookClient bookClient;
+
+    public CatalogServiceImpl(CatalogRepository catalogRepository) {
+        this.repository = catalogRepository ;
+//        this.bookClient = bookClient ;
+    }
     @Override
     public List<Catalog> getAllCatalogs() {
+//        List<Catalog> catalogs = repository.findAll();
+//        List<Catalog> newCatalogs = catalogs.stream().map(catalog -> {
+//            catalog.setBooks(bookClient.getBookOfCatalog(catalog.getId()));
+//            return catalog;
+//        }).collect(Collectors.toList());
+//
+//        return newCatalogs;
+
         return repository.findAll();
     }
 

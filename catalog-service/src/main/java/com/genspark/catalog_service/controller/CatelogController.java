@@ -1,21 +1,22 @@
-package com.genspark.inventory.controller;
+package com.genspark.catalog_service.controller;
 
-import com.genspark.inventory.model.Catalog;
-import com.genspark.inventory.repository.CatalogRepository;
-import com.genspark.inventory.services.CatalogServiceImpl;
+import com.genspark.catalog_service.model.Catalog;
+import com.genspark.catalog_service.services.CatalogService;
+import com.genspark.catalog_service.services.CatalogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/catalogs")
 public class CatelogController {
-    @Autowired
-    private CatalogServiceImpl service;
+    private CatalogService service;
 
 //    @Autowired
 //    private BookClient bookClient;
+
+    public CatelogController(CatalogService service) { this.service = service ;}
 
     @PostMapping
     public Catalog add(@RequestBody Catalog catalog){
