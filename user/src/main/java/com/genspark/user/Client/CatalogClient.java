@@ -1,11 +1,14 @@
 package com.genspark.user.Client;
 
+import com.genspark.user.Entity.Catalog;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 
-@HttpExchange
-public class InventoryClient {
+import java.util.List;
 
-//    @GetExchange("/inventory/")
-//    public
+@HttpExchange
+public interface CatalogClient {
+
+    @GetExchange("/catalogs/")
+    public List<Catalog> findAllCatalogs();
 }
