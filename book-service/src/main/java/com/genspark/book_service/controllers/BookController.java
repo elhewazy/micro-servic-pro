@@ -41,4 +41,9 @@ public class BookController {
         return bookServ.updateBook(book);
     }
 
+    @GetMapping("/catalog/{catalogId}")
+    public List<Book> getBooksByCatalogId(@PathVariable Long catalogId) {
+        return bookServ.getBookOfCatalog(catalogId);
+    }
+
 }

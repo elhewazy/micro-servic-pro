@@ -10,7 +10,7 @@ import java.util.List;
 @HttpExchange
 public interface BookClient {
 
-    @GetExchange("/books/all")
+    @GetExchange("/book/all")
     public List<Book> findAllBooks();
 
 }

@@ -9,6 +9,6 @@ import java.util.List;
 @HttpExchange
 public interface CatalogClient {
 
-    @GetExchange("/catalogs/")
+    @GetExchange("/catalogs")
     public List<Catalog> findAllCatalogs();
 }
