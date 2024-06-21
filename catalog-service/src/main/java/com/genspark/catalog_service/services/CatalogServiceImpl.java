@@ -14,23 +14,23 @@ import java.util.stream.Collectors;
 public class CatalogServiceImpl implements CatalogService{
 
     private CatalogRepository repository;
-//    private BookClient bookClient;
+    private BookClient bookClient;
 
     public CatalogServiceImpl(CatalogRepository catalogRepository) {
         this.repository = catalogRepository ;
-//        this.bookClient = bookClient ;
+        this.bookClient = bookClient ;
     }
     @Override
     public List<Catalog> getAllCatalogs() {
-//        List<Catalog> catalogs = repository.findAll();
-//        List<Catalog> newCatalogs = catalogs.stream().map(catalog -> {
-//            catalog.setBooks(bookClient.getBookOfCatalog(catalog.getId()));
-//            return catalog;
-//        }).collect(Collectors.toList());
-//
-//        return newCatalogs;
+        List<Catalog> catalogs = repository.findAll();
+        List<Catalog> newCatalogs = catalogs.stream().map(catalog -> {
+            catalog.setBooks(bookClient.getBookOfCatalog(catalog.getId()));
+            return catalog;
+        }).collect(Collectors.toList());
 
-        return repository.findAll();
+        return newCatalogs;
+
+        //return repository.findAll();
     }
 
     @Override
