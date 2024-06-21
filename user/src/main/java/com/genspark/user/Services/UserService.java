@@ -9,5 +9,7 @@ public interface UserService {
     List<User> getAllUsers();
     User getUserById(long id);
     User addNewUser(User user);
+    User updateUser(User user);
+    String deleteUserById(long id);
 
 }

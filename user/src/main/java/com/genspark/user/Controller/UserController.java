@@ -25,4 +25,14 @@ public class UserController {
         return userService.addNewUser(user);
     }
 
+    @PutMapping("/updateUser")
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping("/deleteUser")
+    public String deleteUser(@RequestBody long id) {
+        return userService.deleteUserById(id);
+    }
+
 }
