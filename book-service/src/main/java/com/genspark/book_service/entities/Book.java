@@ -1,10 +1,9 @@
 package com.genspark.book_service.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +13,12 @@ public class Book {
     private Long id;
     private String title;
     private String author;
-    private List<Long> catalogIds;
+
+    @ElementCollection
+    @CollectionTable(name = "book_catalog_ids", joinColumns = @JoinColumn(name = "book_id"))
+    @Column(name = "catalog_id")
+    private List<Long> catalogIds = new ArrayList<>();
+
     private Long customerId;
 
     public Book() {
