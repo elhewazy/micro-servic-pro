@@ -13,4 +13,5 @@ public interface BookService {
     Book addBook(Book book);
     String deleteBook(Long id);
     Book updateBook(Book book);
+    List<Book> getBookOfCatalog(Long id);
 }

@@ -38,4 +38,9 @@ public class BookServiceImp implements BookService {
     public Book updateBook(Book book) {
         return this.bookRepo.save(book);
     }
+
+    @Override
+    public List<Book> getBookOfCatalog(Long id) {
+        return this.bookRepo.findAllByCatalogId(id);
+    }
 }
