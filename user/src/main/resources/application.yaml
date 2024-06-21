@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: user
+  config:
+    import: "optional:configserver:http//localhost:8088"
+# MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservice?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show: true
+
+#    # Logging Configurations
+#    logging.level.root=INFO
+#    logging.level.com.example=DEBUG
+#    logging.file.name=logs/application_prod.log
+#    #logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+#    #logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+#    logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+#    logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+#    spring.output.ansi.enabled=always
