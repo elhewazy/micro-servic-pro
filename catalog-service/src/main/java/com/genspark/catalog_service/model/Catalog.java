@@ -1,9 +1,6 @@
-package com.genspark.inventory.model;
+package com.genspark.catalog_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,11 +19,10 @@ public class Catalog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String category;
-    private List<Book> books = new ArrayList<>();
+    transient private List<Book> books;
 
     public Catalog(String category){
         this.category = category;
     }
-
 
 }

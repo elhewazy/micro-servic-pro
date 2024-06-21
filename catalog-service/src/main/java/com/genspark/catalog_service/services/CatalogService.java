@@ -1,6 +1,6 @@
-package com.genspark.inventory.services;
+package com.genspark.catalog_service.services;
 
-import com.genspark.inventory.model.Catalog;
+import com.genspark.catalog_service.model.Catalog;
 
 import java.util.List;
 
