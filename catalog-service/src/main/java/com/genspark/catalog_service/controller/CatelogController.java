@@ -13,8 +13,6 @@ import java.util.List;
 public class CatelogController {
     private CatalogService service;
 
-//    @Autowired
-//    private BookClient bookClient;
 
     public CatelogController(CatalogService service) { this.service = service ;}
 
