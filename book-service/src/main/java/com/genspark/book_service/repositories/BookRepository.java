@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-    @Query("SELECT book FROM Book book JOIN b.catalogIds c WHERE c = :catalogId")
+    @Query("SELECT b FROM Book b JOIN b.catalogIds c WHERE c = :catalogId")
     List<Book> findAllByCatalogId(@Param("catalogId") Long catalogId);
 }

@@ -16,7 +16,7 @@ public class CatalogServiceImpl implements CatalogService{
     private CatalogRepository repository;
     private BookClient bookClient;
 
-    public CatalogServiceImpl(CatalogRepository catalogRepository) {
+    public CatalogServiceImpl(CatalogRepository catalogRepository, BookClient bookClient) {
         this.repository = catalogRepository ;
         this.bookClient = bookClient ;
     }
