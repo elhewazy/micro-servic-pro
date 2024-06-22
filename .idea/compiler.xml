@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Customer-service" />
+        <module name="book-service" />
+        <module name="configration-server" />
+        <module name="api-gateway" />
+        <module name="user" />
+        <module name="servic-registry" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="inventory" target="22" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Customer-service" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="book-service" options="-parameters" />
+      <module name="configration-server" options="-parameters" />
+      <module name="inventory" options="-parameters" />
+      <module name="servic-registry" options="-parameters" />
+      <module name="user" options="-parameters" />
+    </option>
+  </component>
+</project>
