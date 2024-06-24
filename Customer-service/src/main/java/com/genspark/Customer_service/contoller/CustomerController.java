@@ -22,7 +22,7 @@ public class CustomerController {
     public Customer updateCustomer(Customer c){
         return cs.updateCustmor(c);
     }
-    @PostMapping("/addCustmor")
+    @PostMapping("/addCustomer")
     public Customer addCustomer(@RequestBody Customer c){
         Customer returCustomer = this.cs.addCustmor(c);
         if(returCustomer == null){
