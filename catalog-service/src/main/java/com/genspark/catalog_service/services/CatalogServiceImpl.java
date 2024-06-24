@@ -16,10 +16,13 @@ public class CatalogServiceImpl implements CatalogService{
     private CatalogRepository repository;
     private BookClient bookClient;
 
+    // initialize repository and bookClient
     public CatalogServiceImpl(CatalogRepository catalogRepository, BookClient bookClient) {
         this.repository = catalogRepository ;
         this.bookClient = bookClient ;
     }
+
+    // Return all the genres and their relative books
     @Override
     public List<Catalog> getAllCatalogs() {
         List<Catalog> catalogs = repository.findAll();
@@ -29,16 +32,16 @@ public class CatalogServiceImpl implements CatalogService{
         }).collect(Collectors.toList());
 
         return newCatalogs;
-
-        //return repository.findAll();
     }
 
+    // Get catalog by their ID's
     @Override
     public Catalog getById(Long catalogId) {
         Optional<Catalog> t = this.repository.findById(catalogId);
         Catalog catalog = null;
         if (t.isPresent()) {
             catalog = t.get();
+            catalog.setBooks(bookClient.getBookOfCatalog(catalogId));
         }
         return catalog;
     }
@@ -48,17 +51,19 @@ public class CatalogServiceImpl implements CatalogService{
         return repository.findByCategory(catalog);
     }
 
+    // Add catalog (genre)
     @Override
     public Catalog addCatalog(Catalog catalog) {
         return repository.save(catalog);
     }
 
+    // delete a genre
     @Override
     public String deleteCatalog(Long catalogId) {
         repository.deleteById(catalogId);
         return "Deleted Catalog";
     }
-
+    // update genre
     @Override
     public Catalog updateCatalog(Catalog catalog) {
         return repository.save(catalog);
