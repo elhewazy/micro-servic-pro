@@ -2,6 +2,7 @@ package com.genspark.user.Config;
 
 import com.genspark.user.Client.BookClient;
 import com.genspark.user.Client.CatalogClient;
+import com.genspark.user.Client.CustomerClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancedExchangeFilterFunction;
 import org.springframework.context.annotation.Bean;
@@ -32,6 +33,14 @@ public class WebClientConfig {
     }
 
     @Bean
+    public WebClient customerWebClient() {
+        return WebClient.builder()
+                .baseUrl("http://customer-service")
+                .filter(filterFunction)
+                .build();
+    }
+
+    @Bean
     public CatalogClient inventoryClient() {
         WebClientAdapter webClientAdapter = WebClientAdapter.create(catalogWebClient());
         HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory.builderFor(webClientAdapter).build();
@@ -43,5 +52,12 @@ public class WebClientConfig {
         WebClientAdapter webClientAdapter = WebClientAdapter.create(bookWebClient());
         HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory.builderFor(webClientAdapter).build();
         return httpServiceProxyFactory.createClient(BookClient.class);
+    }
+
+    @Bean
+    CustomerClient customerClient() {
+        WebClientAdapter webClientAdapter = WebClientAdapter.create(customerWebClient());
+        HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory.builderFor(webClientAdapter).build();
+        return httpServiceProxyFactory.createClient(CustomerClient.class);
     }
 }

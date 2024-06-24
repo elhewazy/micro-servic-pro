@@ -24,10 +24,14 @@ spring:
           uri: lb://customer-service
           predicates:
             - Path=/customer/**
-        - id: department-service,
+        - id: department-service
           uri: lb://book-service
           predicates:
-             - Path=/book/**
+            - Path=/book/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
 
 
 

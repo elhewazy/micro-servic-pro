@@ -2,8 +2,10 @@ package com.genspark.user.Controller;
 
 import com.genspark.user.Client.BookClient;
 import com.genspark.user.Client.CatalogClient;
+import com.genspark.user.Client.CustomerClient;
 import com.genspark.user.Entity.Book;
 import com.genspark.user.Entity.Catalog;
+import com.genspark.user.Entity.Customer;
 import com.genspark.user.Entity.User;
 import com.genspark.user.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class UserController {
 
     @Autowired
     private CatalogClient catalogClient;
+
+    @Autowired
+    private CustomerClient customerClient;
 
     @GetMapping("/")
     public List<User> getUsers() {
@@ -49,15 +54,23 @@ public class UserController {
         return bookClient.findAllBooks();
     }
 
+    //    @DeleteMapping("/deleteBook/{id}")
+//    public String deleteBook(@PathVariable long id) {
+//        return userService.
+//    }
+
     @GetMapping("/catalogs")
     public List<Catalog> getAllCatalogs() {
         return catalogClient.findAllCatalogs();
     }
 
-//    @DeleteMapping("/deleteBook/{id}")
-//    public String deleteBook(@PathVariable long id) {
-//        return userService.
-//    }
+    @GetMapping("/customers")
+    public List<Customer> getAllCustomers() {
+        return customerClient.getAllCustomers();
+    }
 
-
+    @PostMapping("/customers/add")
+    public Customer addNewCustomer(@RequestBody Customer customer){
+        return customerClient.addNewCustomer(customer);
+    }
 }
