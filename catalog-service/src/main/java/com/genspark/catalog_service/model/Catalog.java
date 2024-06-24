@@ -20,7 +20,6 @@ public class Catalog {
     private Long id;
     private String category;
     transient private List<Book> books;
-
     public Catalog(String category){
         this.category = category;
     }
