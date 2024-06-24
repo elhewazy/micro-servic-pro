@@ -18,16 +18,23 @@ spring:
     import: "optional:configserver:http://localhost:8088"
   cloud:
     gateway:
-      mvc:
-        routes:
-        - id: customer-service
-          uri: lb://customer-service
-          predicates:
-            - Path=/customer/**
-        - id: department-service,
-          uri: lb://book-service
-          predicates:
-             - Path=/book/**
+      routes:
+      - id: Customer-service
+        uri: lb://Customer-service
+        predicates:
+          - Path=/Customer/**
+      - id: book-service
+        uri: lb://book-service
+        predicates:
+           - Path=/book/**
+      - id: catalog-service
+        uri: lb://catalog-service
+        predicates:
+          - Path=/catalogs/**
+      - id: user
+        uri: lb://user
+        predicates:
+          - Path=/user/**
 
 
 

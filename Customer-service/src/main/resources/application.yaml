@@ -3,4 +3,16 @@ spring:
     name: Customer-service
   config:
     import: "optional:configserver:http://localhost:8088"
-
+  # MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/customerdb?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show: true
