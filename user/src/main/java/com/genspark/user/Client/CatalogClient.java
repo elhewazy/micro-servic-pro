@@ -1,8 +1,9 @@
 package com.genspark.user.Client;
 
 import com.genspark.user.Entity.Catalog;
-import org.springframework.web.service.annotation.GetExchange;
-import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.service.annotation.*;
 
 import java.util.List;
 
@@ -10,5 +11,14 @@ import java.util.List;
 public interface CatalogClient {
 
     @GetExchange("/catalogs")
-    public List<Catalog> findAllCatalogs();
+    List<Catalog> findAllCatalogs();
+
+    @PostExchange("/catalogs")
+    Catalog addNewCatalog(@RequestBody Catalog catalog);
+
+    @PutExchange("/catalogs")
+    Catalog updateCatalog(@RequestBody Catalog catalog);
+
+    @DeleteExchange("/catalogs/{id}")
+    String deleteCatalog(@PathVariable long id);
 }

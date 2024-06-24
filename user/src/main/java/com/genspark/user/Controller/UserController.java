@@ -54,14 +54,39 @@ public class UserController {
         return bookClient.findAllBooks();
     }
 
-    //    @DeleteMapping("/deleteBook/{id}")
-//    public String deleteBook(@PathVariable long id) {
-//        return userService.
-//    }
+    @PostMapping("/books/add")
+    public Book addNewBook(@RequestBody Book book) {
+        return bookClient.addNewBook(book);
+    }
+
+    @PutMapping("/books/update")
+    public Book updateBook(@RequestBody Book book) {
+        return bookClient.updateBook(book);
+    }
+
+    @DeleteMapping("/books/delete/{id}")
+    public String deleteBook(@PathVariable long id) {
+        return bookClient.deleteBook(id);
+    }
 
     @GetMapping("/catalogs")
     public List<Catalog> getAllCatalogs() {
         return catalogClient.findAllCatalogs();
+    }
+
+    @PostMapping("/catalogs/add")
+    public Catalog addNewCatalog(@RequestBody Catalog catalog) {
+        return catalogClient.addNewCatalog(catalog);
+    }
+
+    @PutMapping("/catalogs/update")
+    public Catalog updateCatalog(@RequestBody Catalog catalog) {
+        return catalogClient.updateCatalog(catalog);
+    }
+
+    @DeleteMapping("/catalogs/delete/{id}")
+    public String deleteCatalog(@PathVariable long id) {
+        return catalogClient.deleteCatalog(id);
     }
 
     @GetMapping("/customers")
@@ -72,5 +97,15 @@ public class UserController {
     @PostMapping("/customers/add")
     public Customer addNewCustomer(@RequestBody Customer customer){
         return customerClient.addNewCustomer(customer);
+    }
+
+    @PutMapping("/customers/update")
+    public Customer updateCustomer(@RequestBody Customer customer){
+        return customerClient.updateCustomer(customer);
+    }
+
+    @DeleteMapping("/customers/delete/{id}")
+    public String deleteCustomer(@PathVariable long id){
+        return customerClient.deleteCustomer(id);
     }
 }

@@ -24,15 +24,15 @@ public class Customer {
     String lastName;
     String email;
     String address;
-    String jobtitle;
+    String jobTitle;
 
-    public Customer(long phone, String firstName, String lastName, String email, String address, String jobtitle) {
+    public Customer(long phone, String firstName, String lastName, String email, String address, String jobTitle) {
         this.phone = phone;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
-        this.jobtitle = jobtitle;
+        this.jobTitle = jobTitle;
     }
 
 }
