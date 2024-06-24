@@ -31,6 +31,7 @@ public class BookServiceImp implements BookService {
 
     @Override
     public String deleteBook(Long id) {
+        this.bookRepo.deleteById(id);
         return "Book deleted";
     }
 
